@@ -1,0 +1,108 @@
+@charset "utf-8";
+/* CSS Document */
+body {
+	background-color: #EEE;
+	font-family: "微软雅黑";
+}
+.login_logo {
+	text-align: center;
+	padding-top: 80px;
+}
+.login_logo img {
+	transition: all 2.0s;
+}
+.login_logo img:hover {
+	transform: rotate(360deg);
+}
+.feature_login_form {
+	background-color: #FFF;
+	max-width: 700px;
+	border-radius: 8px;
+	padding: 0 30px 30px 30px;
+	margin: 30px auto 0 auto;
+	color: #999999;
+}
+
+.login_title {
+	height: 100px;
+	padding-top: 20px;
+}
+.login_tab {
+	height: 39px;
+	border-bottom: 1px solid #f2f2f2;
+}
+.login_tab a {
+	font-size: 24px;
+	line-height: 30px;
+	/*font-family: "微软雅黑";*/
+	color: #53b481;
+	text-decoration: none;
+	border-bottom: 2px solid #53b481;
+	padding: 0 12px 6px 12px;
+
+}
+.form-group .active {
+	color: red;
+}
+
+.feature_login_form .form-group {
+	margin-bottom: 20px;
+}
+.feature_login_form .control-label {
+	margin-bottom: 10px;
+}
+.feature_login_form .login_failed_explain {
+	color: red;
+}
+.feature_login_form .btn-success {
+	width: 100%;
+}
+
+
+
+.code_input {
+	float: left;
+	width: 30%;
+}
+/*.feature_login_form .code_img {
+	float: left;
+	height: 34px;
+	margin-left: 10px;
+}
+@media screen and (max-width: 288px) {
+	.feature_login_form .code_img {
+		margin-top: 10px;
+	}
+}*/
+.feature_login_form .code_box{      
+	/*background-image:url(../js_my/w1.jpg);  */
+	background-color: #e3e5e2;    
+	font-family:Arial;      
+	font-style:italic;      
+	color:Red;
+	font-weight:bolder;                  
+	letter-spacing:3px;          
+	border:0;
+	width: 65px;
+	height: 34px;
+	padding:2px 3px;
+	margin-left: 10px;
+	line-height: 34px;
+	cursor: pointer; 
+} 
+.feature_login_form .glyphicon-ok {
+	color: #53b481;
+	margin-left: 10px;
+	display: none;
+}
+.feature_login_form .icon_container {
+	margin-bottom: 6px; 
+}
+.checkCodeDiv {
+	cursor: pointer;
+	width: 65px;
+}
+.feature_login_form .icon_wrong {
+	color: red;
+	margin-left: 10px;
+}

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>用户注册</title>
+	<link rel="stylesheet" href="../css/bootstrap.min.css">
+	<link rel="stylesheet" href="../css_my/register.css">
+</head>
+<body>
+	<!-- 导航条 -->
+	<!-- <div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button class="navbar-toggle" data-toggle="collapse" data-target="#myCollapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="../index.html">Codein</a>
+			</div>
+
+			<div class="collapse navbar-collapse" id="myCollapse">
+				<ul class="nav navbar-nav">
+					<li><a href="../zongshu.html">综述</a></li>
+					<li><a href="../jiaocheng.html">教程</a></li>
+					<li><a href="../ziliao.html">资料</a></li>
+					<li><a href="../luntan.html">论坛</a></li>
+				</ul>
+				<div class="navbar-right">
+					<a href="register.html" class="btn btn-primary navbar-btn active" >免费注册</a>
+					<a href="login.html" class="btn btn-danger navbar-btn" >登录</a>
+				</div>
+
+			</div>
+	    </div>
+	</div> -->
+	
+	<div class="container">
+		<div class="col-md-12 login_logo">
+			<a href="../index.html">
+				<img src="../images/login_logo.png" alt="Codein">
+			</a>
+		</div>
+		<div class="col-md-12">
+			<form class="form-horizontal feature_login_form" method="post" action="???">
+				<div class="row login_title">
+					<div class="col-md-12 login_tab">
+						<a>新用户注册</a>
+					</div>
+				</div>
+				<div class="form-group form-control-static">
+					<label for="username" class="col-md-2 control-label">用户名 <span class="active">*</span></label>
+					<div class="col-md-5">
+						<input type="text" name="username1" onchange="checkName()" onkeydown="clearNameWarn()" class="form-control" id="username" placeholder="请输入用户名" required>
+					</div>					
+					<div class="col-md-5 control-label login_failed_explain">
+						<!-- <span id="usernameOk" class="glyphicon glyphicon-ok pull-left"></span> -->
+						<span id="usernameFailed" class="pull-left"></span>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="emailId" class="col-md-2 control-label">邮箱 <span class="active">*</span></label>
+					<div class="col-md-5">
+						<input type="email" class="form-control" id="emailId" placeholder="请输入邮箱" required>
+					</div>
+					<div class="col-md-5 control-label login_failed_explain">
+						<!-- <span id="usernameOk" class="glyphicon glyphicon-ok pull-left"></span> -->
+						<span id="usernameFailed" class="pull-left"></span>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="password" class="col-md-2 control-label">密码 <span class="active">*</span></label>
+					<div class="col-md-5">
+						<input type="password" class="form-control" id="password" placeholder="请输入密码" onblur="checkPassword()" onkeyup="clearPassWarn()" required>
+					</div>
+					<div class="col-md-5 control-label login_failed_explain">
+						<span id="passwordOk" class="glyphicon glyphicon-ok pull-left"></span>
+						<span id="passwordFailed" class="pull-left"></span>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="passwordAgain" class="col-md-2 control-label">确认密码 <span class="active">*</span></label>
+					<div class="col-md-5">
+						<input type="password" class="form-control" id="passwordAgain" onblur="checkPasswordAgain()" onkeyup="clearPassAgainWarn()" placeholder="请再次输入密码" required>
+					</div>
+					<div class="col-md-5 control-label login_failed_explain">
+						<span id="passAgainOk" class="glyphicon glyphicon-ok pull-left"></span>
+						<span id="passAgainFailed" class="pull-left"></span>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="codeInput" class="control-label col-md-2">验证码 <span class="active">*</span></label>
+					<div class="icon_container col-md-8">
+						<input type="code" name="code" id="codeInput" class="form-control code_input" onblur="validate()" onkeypress="validateClearText()" onchange="validateClearText()" required>
+						<input type="text" id="checkCode" class="code_box text-center" onclick="createCode(); validate()" onfocus="this.blur()" tabindex="-1" unselectable="on">
+						<span id="iconOk" class="glyphicon glyphicon-ok"></span>
+					</div>
+					<div class="col-md-12 col-md-offset-2">
+						<span id="iconWrong" class="icon_wrong"></span>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-md-5 col-md-offset-2 btn_register">
+						<input type="submit" value="立即注册" class="btn btn-success">
+					</div>
+				</div>
+			</form>
+			<div style="height: 30px;"></div>
+		</div>
+
+	</div>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/holder.min.js"></script>
+<script src="../js/application.js"></script>
+<script src="../js_my/code.js"></script>
+<script src="../js_my/ajax.js"></script>
+<script src="../js_my/register.js"></script>
+
+<script>
+  // $(document).ready(function() {  
+  //   // 绑定'myForm'并提供一个简单的回调函数
+  //   $('#registerform').submit(function(){
+  //     $(".btn_register").find("input").val('注册中...').attr("disabled","disabled");
+  //   });  
+  //   $('#registerform').ajaxForm(function(ResText) {
+  //     if(ResText){
+  //       var _dataJson = eval('('+ResText+')');
+  //       if(_dataJson.ac=='error'){
+  //         $("#msg_notice").empty();
+  //         var _p= $("<p>").append(_dataJson.msg);
+  //         $("#msg_notice").append(_p);
+  //         $("input[name=Token]").val(_dataJson.token);
+  //         $(".checkCodeRegister").click();
+  //         $(".btn_register").find("input").val('立即注册').removeAttr("disabled");
+  //       }
+  //       if (_dataJson.ac == 'success') {
+  //         window.location.href="/register/activation.html";        
+  //       }
+  //     }
+  //     return false;  
+  //   }); 
+  // });  
+	
+ </script>
+</body>
+</html>

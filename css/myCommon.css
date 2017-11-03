@@ -1,0 +1,21 @@
+@charset "utf-8";
+/* CSS Document */
+body {
+		padding-top: 50px;
+		font-family: "微软雅黑";
+	}
+.bs-docs-nav {
+		border-color: #141414;
+		box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.1);
+	}
+.jumbotron {
+		background: #222222;
+		color: #999999;
+	}	
+.jumbotron .page-header {
+		color: #d7d7d7;
+	}
+.clearfix {
+	clear: both;
+	cursor: pointer;
+}

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Home</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css_my/myCommon.css">
+	<link rel="stylesheet" href="css_my/index.css">
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/holder.min.js"></script>
+	<script src="js/application.js"></script>
+	<script src="js_my/indexImage.js"></script>
+	<script src="js_my/backtop.js"></script>
+
+	<link href="css/owl.carousel.css" rel="stylesheet">
+	<link href="css/owl.theme.css" rel="stylesheet">
+	<style>
+	* {margin: 0;padding: 0;list-style: none;border: none;}
+	#owl-demo{width:100%;margin:0 auto;}
+	#owl-demo .item img {display: block;width:100%;height:auto;}
+	#bar {width: 0%;max-width: 100%;height: 4px;background: #7fc242;}
+	#progressBar {width: 100%;background: #EDEDED;}
+	@media screen and (max-width: 767px) {
+		.img_pc {display: none !important;}
+		.img_mobile {display: block !important;}
+	}	
+	</style> 
+	<script src="js/owl.carousel.js"></script> 
+	<script>
+	$(document).ready(function() {
+	  var time = 7; // time in seconds
+	  var $progressBar,
+		  $bar, 
+		  $elem, 
+		  isPause, 
+		  tick,
+		  percentTime;
+		$("#owl-demo").owlCarousel({
+		  slideSpeed : 500,
+		  paginationSpeed : 500,
+		  singleItem : true,
+		  afterInit : progressBar,
+		  afterMove : moved,
+		  startDragging : pauseOnDragging
+		});
+		//Init progressBar where elem is $("#owl-demo")
+		function progressBar(elem){
+		  $elem = elem;
+		  //build progress bar elements
+		  buildProgressBar();
+		  //start counting
+		  start();
+		}
+		//create div#progressBar and div#bar then prepend to $("#owl-demo")
+		function buildProgressBar(){
+		  $progressBar = $("<div>",{
+			id:"progressBar"
+		  });
+		  $bar = $("<div>",{
+			id:"bar"
+		  });
+		  $progressBar.append($bar).appendTo($elem);
+		}
+		function start() {
+		  //reset timer
+		  percentTime = 0;
+		  isPause = false;
+		  //run interval every 0.01 second
+		  tick = setInterval(interval, 10);
+		}
+		function interval() {
+		  if(isPause === false){
+			percentTime += 1 / time;
+			$bar.css({
+			   width: percentTime+"%"
+			 });
+			//if percentTime is equal or greater than 100
+			if(percentTime >= 100){
+			  //slide to next item 
+			  $elem.trigger('owl.next');
+			}
+		  }
+		}
+		//pause while dragging 
+		function pauseOnDragging(){
+		  isPause = true;
+		}
+		//moved callback
+		function moved(){
+		  //clear interval
+		  clearTimeout(tick);
+		  //start again
+		  start();
+		}
+	});
+	</script> 
+
+
+</head>
+<body>
+	<!-- 导航条 -->
+	<div class="navbar navbar-inverse navbar-fixed-top bs-docs-nav">
+		<div class="container">
+			<div class="navbar-header">
+				<button class="navbar-toggle" data-toggle="collapse" data-target="#myCollapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			    <a href="index.html" class="navbar-brand head_logo">Showit</a>		
+			</div>
+
+			<div class="collapse navbar-collapse" id="myCollapse">
+				<ul class="nav navbar-nav">
+					<li><a href="xinxi.html">信息世界</a></li>
+					<li><a href="jike.html">极客创作</a></li>
+					<li><a href="kexue.html">科学探索</a></li>
+					<li><a href="luntan.html">论坛交流</a></li>
+				</ul>
+				<div class="navbar-right">
+					<a href="pages/register.html" class="btn btn-primary navbar-btn" >免费注册</a>
+					<a href="pages/login.html" class="btn btn-danger navbar-btn" >登录</a>
+				</div>
+
+			</div>
+	    </div>
+	</div>
+
+	<!-- 屏幕轮播 -->
+	<!-- <div id="myCarousel" class="carousel slide hidden-xs" data-ride="carousel">
+		<ul class="carousel-indicators">
+			<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+			<li data-target="#myCarousel" data-slide-to="1"></li>
+			<li data-target="#myCarousel" data-slide-to="2"></li>
+		</ul>
+
+		<div class="carousel-inner">
+			<div class="item active">
+				<img class="center-block"  src="images/showImage1.jpg" width="100%" alt="1">
+				<div class="carousel-caption">
+					sdssssssssssssss
+				</div>
+			</div>
+			<div class="item">
+				<img class="center-block" src="images/showImage2.jpg" width="100%" alt="2">
+				<div class="carousel-caption">
+					
+				</div>
+			</div>
+			<div class="item">
+				<img class="center-block"  src="images/showImage3.jpg" width="100%" alt="3">
+				<div class="carousel-caption">
+					
+				</div>
+			</div>
+		</div>
+
+		<a href="#myCarousel" class="left carousel-control" data-slide="prev">
+			<span class="glyphicon glyphicon-chevron-left"></span>
+		</a>
+		<a href="#myCarousel" class="right carousel-control" data-slide="next">
+			<span class="glyphicon glyphicon-chevron-right"></span>
+		</a>
+	</div> -->
+	<div id="owl-demo" class="owl-carousel">
+		<div class="item">
+			<img src="images/index/fullimage1.jpg" class="img_pc">
+			<img src="images/index/fullimage1_mobile.jpg" class="img_mobile" style="display: none;">
+			<a href="xinxi.html" class="item_content">
+				<span class="line line_top"></span>
+				<span class="line line_right"></span>
+				<span class="line line_bottom"></span>
+				<span class="line line_left"></span>
+				信息世界入口
+			</a>
+		</div>
+		<div class="item">
+			<img src="images/index/fullimage2.jpg" class="img_pc">
+			<img src="images/index/fullimage2_mobile.jpg" class="img_mobile" style="display: none;">
+			<a href="jike.html" class="item_content">
+				<span class="line line_top"></span>
+				<span class="line line_right"></span>
+				<span class="line line_bottom"></span>
+				<span class="line line_left"></span>
+				极客创作入口
+			</a>
+		</div>
+		<div class="item">
+			<img src="images/index/fullimage3.jpg" class="img_pc">
+			<img src="images/index/fullimage3_mobile.jpg" class="img_mobile" style="display: none;">
+			<a href="kexue.html" class="item_content">
+				<span class="line line_top"></span>
+				<span class="line line_right"></span>
+				<span class="line line_bottom"></span>
+				<span class="line line_left"></span>
+				科学探索入口
+			</a>
+		</div>
+	</div>
+
+	<hr class="feature_divider_30">
+
+	<!-- 主题内容 -->
+	<div class="container" id="container">
+		<!-- <div class="row center-block imageBox">
+		    	<div class="col-md-4">
+		    		<div class="thumbnail">
+		    			<a href=""><img class="img-responsive img-rounded" src="images/index/photoshop_news.png" height="200" width="300" alt=""></a>
+		    			<div class="caption">
+		    				<h3>让你效率爆表的网页设计Photoshop插件包</h3>
+		    				<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+		    				<p>
+		    					<a href="" class="btn btn-primary">预览</a>
+		    					<a href="" class="btn btn-default">进入</a>
+		    				</p>
+		    			</div>
+		    		</div>
+		    	</div>
+		    	<div class="col-md-4">
+		    		<div class="thumbnail">
+		    			<img class="img-responsive img-rounded" src="images/index/legao_news.jpg" height="200" width="300" alt="">
+		    			<div class="caption">
+		    				<h3>售价破万 牛人用乐高拼出电脑机箱</h3>
+		    				<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+		    				<p>
+		    					<a href="" class="btn btn-primary">预览</a>
+		    					<a href="" class="btn btn-default">进入</a>
+		    				</p>
+		    			</div>
+		    		</div>
+		    	</div>
+		    	<div class="col-md-4">
+		    		<div class="thumbnail">
+		    			<img class="img-responsive img-rounded" src="images/index/huoxing_news.jpg" height="200" width="300" alt="">
+		    			<div class="caption">
+		    				<h3>欧空局火星快车号传来新影像数据 显示古时火星遍布水流</h3>
+		    				<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+		    				<p>
+		    					<a href="" class="btn btn-primary">预览</a>
+		    					<a href="" class="btn btn-default">进入</a>
+		    				</p>
+		    			</div>
+		    		</div>
+		    	</div>
+		</div> -->
+
+		<!-- aaaa -->
+		<!-- <hr class="feature_divider_80"> -->
+		<div class="row">
+			<div class="col-md-6">
+				<h2 class="heading_h2">与世界<span class="text-muted">信息互联</span></h2>
+				<p class="lead">互联网是人类智慧独一无二的创造，是人类智能产物。网络的发展为信息共享、信息协作和商务拓展创造了一个崭新的万能空间。网络是超越了时空和人类全部历史的崭新的数字化世界，它改变着我们的学习、工作、生活和思维方式，同时也潜移默化地改变着我们的价值观和世界观。</p>
+			</div>
+			<div class="col-md-6">				
+				<div id="indexImageWWW" class="wwwImage1">
+					<img class="img-responsive center-block" src="images/index/3w.jpg" height="500" width="500" alt="assdf">
+				</div>
+			</div>
+		</div>
+		<hr class="feature_divider_80">
+		<div class="row">
+			<div class="col-md-6 pull-right">
+				<h2 class="heading_h2">开放的<span class="text-muted">极客家园</span></h2>
+				<p class="lead">Geek是新的精英亚文化群，是一群爱好新事物的、以技术为中心的、同时对社会怀有深刻不满的地下人类。极客对这个世界的影响，不仅局限在物质层面，崇尚科技、自由和创造力的极客精神正越来越成为这个时代新的意识形态。</p>
+			</div>
+			<div class="col-md-6" style="overflow: hidden;">
+				<div id="indexImageBox" class="holo1">
+					<img class="img-responsive center-block" src="images/index/holo_mobile.jpg" height="500" width="500" alt="assdf" style="margin: 0 auto;">
+				</div>
+			</div>
+		</div>
+		<hr class="feature_divider_80">
+		<div class="row">
+			<div class="col-md-6">
+				<h2 class="heading_h2">探索世界的<span class="text-muted">奥秘</span></h2>
+				<p class="lead">我们存在的这个世界充满了无数神秘未知的秘密，让我们带着如孩童般的天真与好奇心，来探索自然与科学。在这里，天文地理、动植物、物理化学等等等，总有你喜欢的领域，来尽情拥抱知识的海洋吧！</p>
+			</div>
+			<div class="col-md-6" id="colRow">
+				<div id="indexImageAomi" class="Aomi1">
+					<img class="img-responsive center-block" src="images/index/bawanglong.jpg" height="500" width="500" alt="assdf">
+				</div>
+			</div>
+		</div>
+
+		<hr class="feature_divider_120">
+
+		<!-- Footer -->
+		<footer>
+			<p class="pull-right"><a href="#">回顶部</a></p>
+			<p class="text-center">Copyright © 2016 WWW.SHOWIT.COM All Rights Reserved</p>
+		</footer>
+
+		<div class="bottom_tools" style="bottom: 40px">
+			<a href="javascript:;" id="scrollUp" title="飞回顶部"></a>
+		</div>
+
+	</div>
+
+	<script>
+	
+</script>
+		
+</body>
+</html>

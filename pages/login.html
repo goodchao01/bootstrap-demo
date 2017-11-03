@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>用户登录</title>
+	<link rel="stylesheet" href="../css/bootstrap.min.css">
+	<link rel="stylesheet" href="../css_my/register.css">
+	<link rel="stylesheet" href="../css_my/login.css">
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/holder.min.js"></script>
+	<script src="../js/application.js"></script>
+<style>
+
+</style>
+</head>
+<body>	
+	<div class="container">
+		<div class="col-md-12 login_logo">
+			<a href="../index.html">
+				<img src="../images/login_logo.png" alt="Codein">
+			</a>
+		</div>
+		<div class="col-md-12">
+			<form class="form-horizontal feature_login_form" method="post" action="???">
+				<div class="row login_title">
+					<div class="col-md-12 login_tab">
+						<a>用户登录</a>
+					</div>
+				</div>
+				<div class="form-group form-control-static">
+					<label for="username" class="col-md-2 control-label">用户名 <span class="active">*</span></label>
+					<div class="col-md-5">
+						<input type="text" name="username1" onchange="checkName()" onkeydown="clearNameWarn()" class="form-control" id="username" placeholder="请输入用户名或邮箱" required>
+					</div>					
+					<div class="col-md-5 control-label login_failed_explain">
+						<!-- <span id="usernameOk" class="glyphicon glyphicon-ok pull-left"></span> -->
+						<span id="usernameFailed" class="pull-left"></span>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="password" class="col-md-2 control-label">密码 <span class="active">*</span></label>
+					<div class="col-md-5">
+						<input type="password" class="form-control" id="password" placeholder="请输入密码" onblur="checkPassword()" onkeyup="clearPassWarn()" required>
+					</div>
+					<!-- <div class="col-md-5 control-label login_failed_explain">
+						<span id="passwordOk" class="glyphicon glyphicon-ok pull-left"></span>
+						<span id="passwordFailed" class="pull-left"></span>
+					</div> -->
+				</div>
+				<div class="form-group">
+					<label for="codeInput" class="control-label col-md-2">验证码 <span class="active">*</span></label>
+					<div class="icon_container col-md-8">
+						<input type="code" name="code" id="codeInput" class="form-control code_input" onblur="validate()" onkeypress="validateClearText()" onchange="validateClearText()" required>
+						<input type="text" id="checkCode" class="code_box text-center" onclick="createCode(); validate()" onfocus="this.blur()" tabindex="-1" unselectable="on">
+						<span id="iconOk" class="glyphicon glyphicon-ok"></span>
+					</div>
+					<div class="col-md-12 col-md-offset-2">
+						<span id="iconWrong" class="icon_wrong"></span>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-md-5 col-md-offset-2 btn_register">
+						<a href="register.html">还未注册账号？ 点击立即注册</a>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-md-5 col-md-offset-2 btn_register">
+						<input type="submit" value="登录" class="btn btn-success">
+					</div>
+				</div>
+			</form>
+			<div style="height: 30px;"></div>
+		</div>
+
+	</div>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/holder.min.js"></script>
+<script src="../js/application.js"></script>
+<script src="../js_my/code.js"></script>
+<script src="../js_my/ajax.js"></script>
+<script src="../js_my/register.js"></script>
+</body>
+</html>

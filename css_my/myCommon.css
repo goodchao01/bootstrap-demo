@@ -1,0 +1,84 @@
+@charset "utf-8";
+/* CSS Document */
+body {
+	padding-top: 50px;
+}
+h1,h2,h3,h4,h5,h6,p,span,a,i,em,strong,li {
+	font-family: "微软雅黑";
+}
+.head_logo {
+	padding-left: 40px;
+	margin-left: 10px;
+	background: url(../images/logo.png) left center no-repeat;
+}
+.bs-docs-nav {
+		border-color: #141414;
+		box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.1);
+}
+/*@media screen and (max-width: 767px) {
+	body {
+		padding-top: 0;
+	}
+	.bs-docs-nav {
+			margin-bottom: 0;
+			position: relative;
+	}
+}*/
+.jumbotron {
+	background: #222222;
+	color: #999999;
+}	
+.jumbotron .page-header {
+	color: #d7d7d7;
+}
+
+.thumbnail h3 {
+	text-align: center;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	margin-bottom: 20px;
+}
+.thumbnail p {
+	text-align: center;
+}
+
+.luntanImage img {
+	transition: 0.3s linear;
+	-ms-transition: 0.3s linear;
+}
+.luntanImage img:hover {
+	transform: scale(1.5);
+	-ms-transform: scale(1.5);
+	z-index: 1;
+}
+
+
+.feature_divider_30 {
+	margin: 30px 0;
+}	
+.feature_divider_80 {
+	margin: 80px 0;
+}
+.feature_divider_120 {
+	margin: 120px 0;
+}
+
+.bottom_tools {
+	position: fixed;
+	right: 3%;
+}
+.bottom_tools a {
+	width: 55px;
+	height: 55px;
+	background: url(../images/back-top.png) left top no-repeat;
+	opacity: 0.7;
+	
+}
+.bottom_tools a:hover {
+	background: url(../images/back-top.png) left -55px no-repeat;
+	opacity: 0.9;
+}
+.bottom_tools>* {
+	margin-top: 5px;
+}
